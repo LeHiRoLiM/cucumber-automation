@@ -22,7 +22,7 @@ public class Hooks extends BaseSteps
     }
 
     @Before("@reset")
-    public static void resetarBrowser()
+    public static void resetarBrowser() throws Exception
     {
         if(contaTeste > 1)
         {
@@ -32,7 +32,7 @@ public class Hooks extends BaseSteps
     }
 
     @BeforeAll
-    public static void antesDeTudo()
+    public static void antesDeTudo() throws Exception
     {
         abrirBrowser();
     }

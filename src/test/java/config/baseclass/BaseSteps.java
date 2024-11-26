@@ -1,11 +1,10 @@
 package config.baseclass;
 
-import config.support.Navegador;
+import config.support.BrowserFactory;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -14,10 +13,10 @@ public class BaseSteps
     public static WebDriver browser;
     public static Scenario scenario;
 
-    public static void abrirBrowser()
+    public static void abrirBrowser() throws Exception
     {
         if (browser != null) return;
-        browser = Navegador.getNavegador();
+        browser = BrowserFactory.getBrownser();
     }
 
     public static void fecharBrowser()
