@@ -5,24 +5,30 @@ import io.cucumber.java.*;
 
 public class Hooks extends BaseSteps
 {
+    private static int contaTeste = 1;
+
     @Before
-    public void antesDoTeste(Scenario _scenario)
+    public static void antesDoTeste(Scenario _scenario)
     {
         scenario = _scenario;
     }
 
     @After
-    public void depoisDoTeste()
+    public static void depoisDoTeste()
     {
-        if (scenario.isFailed())
+        contaTeste++;
+        if(scenario.isFailed())
             screenshot();
     }
 
     @Before("@reset")
-    public void resetarBrowser()
+    public static void resetarBrowser()
     {
-        fecharBrowser();
-        abrirBrowser();
+        if(contaTeste > 1)
+        {
+            fecharBrowser();
+            abrirBrowser();
+        }
     }
 
     @BeforeAll
