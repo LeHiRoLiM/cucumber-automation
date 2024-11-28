@@ -31,8 +31,8 @@ public class PesquisaLehiiSteps extends BaseSteps
         Thread.sleep(3000);
     }
 
-    @Entao("mostra mensagem Login com sucesso!")
-    public void login_e_feito_com_sucesso()
+    @Entao("mostra mensagem {string}")
+    public void login_e_feito_com_sucesso(String texto)
     {
         String msgEsperado = "Login com sucesso!";
         String msgNaTela = pagePesquisa.getMsg();
@@ -41,14 +41,16 @@ public class PesquisaLehiiSteps extends BaseSteps
         screenshot();
     }
 
-    // test 2
-    @Então("mostra mensagem de erro")
-    public void mostra_mensagem_de_erro()
+    // teste 2
+    @Então("mostra mensagem {string}")
+    public void mostra_mensagem_de_erro(String texto)
     {
         String msnEsperado2 = "User not found";
         String msgNaTela2 = pagePesquisa.getMsg();
         Assert.assertEquals(msnEsperado2, msgNaTela2);
     }
+
+    // teste 3
 
 }
 
