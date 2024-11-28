@@ -18,7 +18,7 @@ public class BrowserFactory
 
     public static WebDriver getBrownser() throws Exception
     {
-        return getBrownser(Browser.CHROME_HEADLESS); // Browser Default
+        return getBrownser(Browser.CHROME); // Browser Default
     }
 
     public static WebDriver getBrownser(Browser navegador) throws Exception
