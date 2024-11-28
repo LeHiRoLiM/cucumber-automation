@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber/index.html",
                 "json:target/cucumber/index.json"
         }
-        //,tags = "not @ecore_invoice_details and not @ecore_login"
+        ,tags = "@teste3"
 
         /**
          * Executar testes no termial

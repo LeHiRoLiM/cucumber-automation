@@ -5,22 +5,35 @@ import org.openqa.selenium.By;
 
 public class PesquisaLehiPage extends BasePages
 {
-    private String url = "https://www.google.com/";
-    private By campoPesquisa = By.id("APjFqb");
-    private By botaoPesquisar = By.xpath("(//input[@class='gNO89b'])[2]");
+    private String url = "http://bug.dev.hill/signin";
+    private By campoEmail = By.id("email");
+    private By campoSenha = By.id("pass");
+    private By botaoPesquisar = By.id("login");
+    private By msg = By.cssSelector("#toast_notification > div > div");
+
 
     public void abrir()
     {
         driver.get(url);
     }
 
-    public void preencherPesquisa(String texto)
+    public void preencherEmail(String texto)
     {
-        driver.findElement(campoPesquisa).sendKeys(texto);
+        driver.findElement(campoEmail).sendKeys(texto);
     }
 
-    public void clicarEmPesquisar()
+    public void preencherSenha(String texto)
+    {
+        driver.findElement(campoSenha).sendKeys(texto);
+    }
+
+    public void clicarPesquisar()
     {
         driver.findElement(botaoPesquisar).click();
+    }
+
+    public String getMsg()
+    {
+        return driver.findElement(msg).getText();
     }
 }
