@@ -15,7 +15,7 @@ public class PesquisaLehiSteps extends BaseSteps
     }
 
     @Quando("o usuario preenche o campo pesquisa com {string}")
-    public void o_usuario_preenche_o_campo_pesquisa_com(String string)
+    public void o_usuario_preenche_o_campo_pesquisa_com(String texto)
     {
     }
 
