@@ -17,11 +17,14 @@ public class PesquisaLehiSteps extends BaseSteps
     @Quando("o usuario preenche o campo pesquisa com {string}")
     public void o_usuario_preenche_o_campo_pesquisa_com(String texto)
     {
+        pagePesquisa.preencherPesquisa(texto);
     }
 
     @E("o usuario clica no botao pesquisar")
-    public void o_usuario_clica_no_botao_pesquisar()
+    public void o_usuario_clica_no_botao_pesquisar() throws InterruptedException
     {
+        pagePesquisa.clicarEmPesquisar();
+        Thread.sleep(3000);
     }
 
     @Entao("o sistema apresenta uma lista de resultados")

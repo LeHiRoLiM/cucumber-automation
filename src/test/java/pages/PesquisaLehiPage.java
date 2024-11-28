@@ -7,23 +7,20 @@ public class PesquisaLehiPage extends BasePages
 {
     private String url = "https://www.google.com/";
     private By campoPesquisa = By.id("APjFqb");
-    private By campoescrever = By.linkText("APjFqb");
-    private By botaopesquisar = By.xpath("(//input[@class='gNO89b'])[2]");
+    private By botaoPesquisar = By.xpath("(//input[@class='gNO89b'])[2]");
 
     public void abrir()
     {
         driver.get(url);
     }
 
-    public void pesquisar()
+    public void preencherPesquisa(String texto)
     {
-        driver.findElement(campoPesquisa);
-        driver.findElement(campoPesquisa);
-        driver.findElement(campoPesquisa).click();
+        driver.findElement(campoPesquisa).sendKeys(texto);
     }
 
-    public void clicar()
+    public void clicarEmPesquisar()
     {
-        driver.findElement(botaopesquisar).click();
+        driver.findElement(botaoPesquisar).click();
     }
 }
