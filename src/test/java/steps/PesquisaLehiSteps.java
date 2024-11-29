@@ -5,10 +5,9 @@ import io.cucumber.java.pt.*;
 import org.junit.Assert;
 import pages.PesquisaLehiPage;
 
-public class PesquisaLehiiSteps extends BaseSteps
+public class PesquisaLehiSteps extends BaseSteps
 {
     PesquisaLehiPage pagePesquisa = new PesquisaLehiPage();
-
 
     @Dado("que o usuario esta no site BUG e tem uma conta cadastrada")
     public void que_o_usuario_esta_no_site_bug_e_tem_uma_conta_cadastrada()
@@ -24,33 +23,20 @@ public class PesquisaLehiiSteps extends BaseSteps
     }
 
     @E("senha: {string}")
-    public void senha(String texto) throws InterruptedException {
+    public void senha(String texto) throws InterruptedException
+    {
         pagePesquisa.preencherSenha(texto);
         screenshot();
         pagePesquisa.clicarPesquisar();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
     }
 
     @Entao("mostra mensagem {string}")
-    public void mensagem(String texto)
+    public void mensagem(String msgEsperado) throws InterruptedException
     {
-        String msgEsperado = "Login com sucesso!";
         String msgNaTela = pagePesquisa.getMsg();
         Assert.assertEquals(msgEsperado, msgNaTela);
         screenshot();
+        Thread.sleep(1000);
     }
-
-    // teste 2
-    @Então("mostra mensagem {string}")
-    public void mostra_mensagem(String texto)
-    {
-        String msnEsperado2 = "User not found";
-        String msgNaTela2 = pagePesquisa.getMsg();
-        Assert.assertEquals(msnEsperado2, msgNaTela2);
-        screenshot();
-    }
-
-    // teste 3
-
 }
-

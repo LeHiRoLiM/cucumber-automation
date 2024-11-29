@@ -11,7 +11,6 @@ public class PesquisaLehiPage extends BasePages
     private By botaoPesquisar = By.id("login");
     private By msg = By.cssSelector("#toast_notification > div > div");
 
-
     public void abrir()
     {
         driver.get(url);
