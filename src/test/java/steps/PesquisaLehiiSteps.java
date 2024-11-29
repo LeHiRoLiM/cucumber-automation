@@ -11,20 +11,20 @@ public class PesquisaLehiiSteps extends BaseSteps
 
 
     @Dado("que o usuario esta no site BUG e tem uma conta cadastrada")
-    public void que_o_usuario_esta_no_site_bug()
+    public void que_o_usuario_esta_no_site_bug_e_tem_uma_conta_cadastrada()
     {
         pagePesquisa.abrir();
         screenshot();
     }
 
     @Quando("escrever o Email: {string}")
-    public void escrever_um_email_valido(String texto)
+    public void escrever_o_email(String texto)
     {
         pagePesquisa.preencherEmail(texto);
     }
 
     @E("senha: {string}")
-    public void uma_senha_valida(String texto) throws InterruptedException {
+    public void senha(String texto) throws InterruptedException {
         pagePesquisa.preencherSenha(texto);
         screenshot();
         pagePesquisa.clicarPesquisar();
@@ -32,22 +32,22 @@ public class PesquisaLehiiSteps extends BaseSteps
     }
 
     @Entao("mostra mensagem {string}")
-    public void login_e_feito_com_sucesso(String texto)
+    public void mensagem(String texto)
     {
         String msgEsperado = "Login com sucesso!";
         String msgNaTela = pagePesquisa.getMsg();
-
         Assert.assertEquals(msgEsperado, msgNaTela);
         screenshot();
     }
 
     // teste 2
     @Então("mostra mensagem {string}")
-    public void mostra_mensagem_de_erro(String texto)
+    public void mostra_mensagem(String texto)
     {
         String msnEsperado2 = "User not found";
         String msgNaTela2 = pagePesquisa.getMsg();
         Assert.assertEquals(msnEsperado2, msgNaTela2);
+        screenshot();
     }
 
     // teste 3

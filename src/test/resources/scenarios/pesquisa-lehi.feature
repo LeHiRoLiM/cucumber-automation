@@ -1,5 +1,5 @@
 #language: pt
-Funcionalidade: google
+Funcionalidade: Login BUG
 
   @teste1 @reset
   Cenario: Login com sucesso
