@@ -3,6 +3,7 @@ package steps;
 import config.baseclass.BaseSteps;
 import io.cucumber.java.pt.*;
 import org.junit.Assert;
+import org.junit.experimental.theories.Theories;
 import pages.PesquisaLehiPage;
 
 public class PesquisaLehiSteps extends BaseSteps

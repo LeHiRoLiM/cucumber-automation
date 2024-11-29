@@ -9,7 +9,7 @@ public class PesquisaLehiPage extends BasePages
     private By campoEmail = By.id("email");
     private By campoSenha = By.id("pass");
     private By botaoPesquisar = By.id("login");
-    private By msg = By.cssSelector("#toast_notification > div > div");
+    private By msg = By.id("toast_notification");
 
     public void abrir()
     {
