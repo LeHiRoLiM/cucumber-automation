@@ -3,41 +3,38 @@ package steps;
 import config.baseclass.BaseSteps;
 import io.cucumber.java.pt.*;
 import org.junit.Assert;
-import org.junit.experimental.theories.Theories;
+import pages.HomeLehiPage;
 import pages.PesquisaLehiPage;
 
 public class PesquisaLehiSteps extends BaseSteps
 {
     PesquisaLehiPage pagePesquisa = new PesquisaLehiPage();
+    HomeLehiPage pageHome = new HomeLehiPage();
 
-    @Dado("que o usuario esta no site BUG e tem uma conta cadastrada")
-    public void que_o_usuario_esta_no_site_bug_e_tem_uma_conta_cadastrada()
+    @Dado("que o usuario esta no site SwangLabs")
+    public void que_o_usuario_esta_no_site_swang_labs()
     {
-        pagePesquisa.abrir();
-        screenshot();
+        pagePesquisa.syti();
     }
 
-    @Quando("escrever o Email: {string}")
-    public void escrever_o_email(String texto)
+    @Quando("o usuario escrever username {string}")
+    public void o_usuario_escrever_username(String texto)
     {
-        pagePesquisa.preencherEmail(texto);
+        pagePesquisa.usernamen(texto);
     }
 
-    @E("senha: {string}")
-    public void senha(String texto) throws InterruptedException
-    {
-        pagePesquisa.preencherSenha(texto);
-        screenshot();
-        pagePesquisa.clicarPesquisar();
-        Thread.sleep(1000);
+    @Quando("o usuario escrever senha {string}")
+    public void o_usuario_escrever_senha(String texto) throws InterruptedException {
+        pagePesquisa.senha(texto);
+        Thread.sleep(2000);
     }
 
-    @Entao("mostra mensagem {string}")
-    public void mensagem(String msgEsperado) throws InterruptedException
+    @Entao("o sistema e redirecionado para uma pagina com varios link de pesqisa")
+    public void o_sistema_e_redirecionado_para_uma_pagina_com_varios_link_de_pesqisa()
     {
-        String msgNaTela = pagePesquisa.getMsg();
-        Assert.assertEquals(msgEsperado, msgNaTela);
+        String esperado= "Products";
+        String naTela = pageHome.showTituloPag();
+        Assert.assertEquals(esperado, naTela);
         screenshot();
-        Thread.sleep(1000);
     }
 }

@@ -27,5 +27,5 @@ import org.junit.runner.RunWith;
      *	$ mvn clean test
      * */
 )
-public class RunCucumberTest {
-}
+public class RunCucumberTest
+{ }
